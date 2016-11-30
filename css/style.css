@@ -1,16 +1,22 @@
-.well{
-	padding-left: 30px;
-	padding-right: 30px;
+.row{
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 .letter-btn{
 	width: 7.69%;
+	border: 3px;
 }
 
 .input-form{
 	margin-top: 20px;
 }
 
-.guess-btn{
-	margin-top: 5px;
+.winnerDiv{
+	margin-bottom: 30px;
+}
+
+.letter-btn{
+	padding-left: 0px;
+	padding-right: 0px;
 }

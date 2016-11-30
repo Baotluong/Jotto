@@ -8,7 +8,7 @@
 		
 		dataObj = {
 
-			rawList: rawList,
+			rawArray: rawArray,
 			uniqueWordsArray: uniqueWordsArray,
 			secretWord: secretWord,
 			checkForUnique: checkForUnique
@@ -23,12 +23,14 @@
 	var rawArray = rawList.split(" ");
 	var uniqueWordsArray = [];
 
+	//do the array thing
 	function checkForUnique(word){
+		var checkArray = [];
 		for(var i = 0; i < word.length; i++){
-			for(var j = 0; j < word.length; j++){
-				if(word[i] == word[j] && i !== j){
-					return false;
-				}
+			if(checkArray.includes(word[i])){
+				return false;
+			}else{
+				checkArray.push(word[i]);
 			}
 		}
 		return true;
@@ -45,5 +47,5 @@
 	fillUniqueWordArray();
 
 	var secretWord = uniqueWordsArray[Math.floor(Math.random()*uniqueWordsArray.length)];
-
+	
 })();

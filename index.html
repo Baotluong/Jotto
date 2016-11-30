@@ -16,20 +16,25 @@
     <div class="container-fluid">
     	<div class="page-header col-md-8 col-md-offset-2">
 	    	<h1>JOTTO</h1>
-	    	<h3>How many guesses will you need to figure out my word?</h3>
+	    	<h4>How many guesses will you need to figure out my word?</h4>
     	</div>
     </div>
 
     <div ng-controller="guessCtrl as guess">
     	<div class="row">
-    		<div class="Winner" ng-if="guess.playerWin">
-    			<h2>Congratulations! {{guess.fiveWords.secretWord | uppercase}} is the correct guess! It only took you {{guess.playerGuess.length}} tries!</h2>	
+    		<div class="winnerDiv col-md-8 col-md-offset-2" ng-if="guess.playerWin">
+    			<h3>Congratulations! {{guess.fiveWords.secretWord | uppercase}} is the correct guess! It took you {{guess.playerGuess.length}} tries. {{guess.playerWinResponse}}</h3>	
     		</div>
 	    </div>
 
 	    <div class="row">
 	    	<div class="col-md-8 col-md-offset-2 well well-sm">
-	    		<h4>Track your letters</h4>
+	    		<div class="row">
+		    		<h4>Track your letters</h4>
+		    		<div class="checkbox pull-right">
+	  					<label><input type="checkbox" ng-model="guess.allowNonUnique">Allow non-Unique Guesses?</label>
+					</div>
+				</div>
 		    	<div class="row button-row">
 		    		<button ng-repeat="letter in guess.alphabet"
 		    				ng-if="$index < 13" 
@@ -55,9 +60,9 @@
 
     	<div class="row">
 	    	<div class="col-md-8 col-md-offset-2">
-	    		<div class="col-sm-3" class="player-guess"
+	    		<div class="col-xs-4 col-sm-3 col-md-2" class="player-guess"
 	    			 ng-repeat="playerGuess in guess.playerGuess">
-	    			 <h4>{{guess.playerGuess[$index].guess.toUpperCase()+" "+guess.playerGuess[$index].numCorrect}}</h4>
+	    			 <h5>{{playerGuess.guess.toUpperCase()+" "+playerGuess.numCorrect}}</h5>
 	    		</div>
 	    	</div>
     	</div>
